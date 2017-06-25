@@ -1,0 +1,6 @@
+[DEFAULT]
+timezone = Europe/Helsinki
+
+[slack]
+user = dan
+token = <slack-token-here>

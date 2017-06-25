@@ -1,3 +1,4 @@
 client_secret.json
+*.ini
 *.pyc
 __pycache__
