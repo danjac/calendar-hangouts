@@ -11,7 +11,6 @@ from apiclient import discovery
 from oauth2client import client, tools
 from oauth2client.file import Storage
 
-# at ~/.credentials/calendar-python-quickstart.json
 SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Calendar Hangouts Extractor'
@@ -61,6 +60,7 @@ class Extractor:
 
     def create_event_message(self, event):
 
+        # make a link readable by Android
         hangout_link = event['hangoutLink'].replace(
             "plus.google.com",
             "hangouts.google.com"
