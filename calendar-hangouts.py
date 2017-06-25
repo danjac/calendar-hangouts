@@ -1,4 +1,3 @@
-import os
 import sys
 import pathlib
 import configparser
@@ -17,6 +16,7 @@ SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Calendar Hangouts Extractor'
 DIVIDER = "-" * 30
+
 
 class Slack:
     def __init__(self, client, username):
@@ -97,7 +97,6 @@ class Extractor:
                 calendarId='primary',
                 timeMin=time_min,
                 timeMax=time_max,
-                #maxResults=10,
                 singleEvents=True,
                 orderBy='startTime'
                 ).execute()
