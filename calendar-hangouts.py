@@ -88,7 +88,7 @@ def main():
     service = discovery.build('calendar', 'v3', http=http)
     now = arrow.utcnow()
     time_min = now.to('UTC')
-    time_max = now.replace(days=+7).to('UTC')
+    time_max = now.replace(hours=+24).to('UTC')
     result = service.events().list(
             calendarId='primary',
             timeMin=time_min,
@@ -103,14 +103,14 @@ def main():
     ]
 
     if not events:
-        print("No Hangout events found for next week")
+        print("No Hangout events for 24 hours")
         return
 
-    print(len(events), "Hangout event(s) next week")
+    print(len(events), "Hangout event(s) for next 24 hours")
 
     message = [
-        "*Hangout events for next 7 days starting %s*" %
-        now.format("DD/MM/YYYY"),
+        "*Hangout events for next 24 hours starting %s*" %
+        now.format("DD/MM/YYYY HH:mm ZZ"),
         DIVIDER,
     ]
 
